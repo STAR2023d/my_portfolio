@@ -43,9 +43,30 @@ function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
 
-        <h1 className="text-xl font-bold tracking-wide">
-          JM.
-        </h1>
+        <div className="flex items-center gap-3">
+          <img
+            src="/profile.jpeg"
+            alt="Jesee Muchoki"
+            className="
+              w-11
+              h-11
+              rounded-full
+              object-cover
+              border
+              border-primary/40
+           "
+          />
+
+  <div>
+    <h1 className="font-bold leading-none">
+      Jesee Muchoki
+    </h1>
+
+    <p className="text-xs text-slate-400 mt-1">
+      Full Stack Developer and Agentic AI Engineer
+    </p>
+  </div>
+</div>
 
         <ul className="hidden md:flex items-center gap-8 text-sm text-slate-300">
           {navItems.map((item) => (
