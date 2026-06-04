@@ -11,4 +11,12 @@ export const techStack = [
   "OpenAI",
   "TailwindCSS",
   "GitHub",
+  "EpressJS",
+  "Next.js",
+  "Retrieval Augmented Generation (RAG)",
+  "Large Language Models (LLMs)",
+  "API Integration",
+  "LLM Prompt Engineering",
+  "RESTful APIs",
+  "AI Agents Development",
 ];
