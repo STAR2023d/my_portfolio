@@ -14,6 +14,10 @@ import {
   siVercel,
   siPython,
   type SimpleIcon,
+  siFlutter,
+  siFirebase,
+  siDjango,
+  siCrewai,
 } from "simple-icons";
 
 import { OpenAIIcon } from "./OpenAIIcon";
@@ -38,6 +42,11 @@ const ICONS: Record<string, SimpleIcon> = {
   github: siGithub,
   vercel: siVercel,
   python: siPython,
+  flutter: siFlutter,
+  dart: { ...siFlutter, title: "Dart" }, // Flutter is Dart, but Simple Icons calls it Flutter
+  firebase: siFirebase,
+  django: siDjango,
+  crewai: siCrewai,
 };
 
 type Props = {

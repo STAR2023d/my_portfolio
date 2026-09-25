@@ -18,12 +18,9 @@ const NAV_ITEMS = [
 
 // ============================================================
 // EXTERNAL LINKS
-// Centralized so they can't drift out of sync.
-// ⚠️ Replace the LinkedIn placeholder with your real handle.
-// ============================================================
 const SOCIALS = {
-  github: "https://github.com/js-muc",
-  linkedin: "https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE",
+  github: "https://github.com/STAR2023d",
+  linkedin: "https://www.linkedin.com/in/Dan Mwaura",
 } as const;
 
 function Navbar() {
@@ -95,7 +92,7 @@ function Navbar() {
             className="w-11 h-11 rounded-full object-cover border border-primary/40"
           />
           <div>
-            <h1 className="font-bold leading-none">Jesee Muchoki</h1>
+            <h1 className="font-bold leading-none">Dan Kamau Mwaura</h1>
             <p className="text-xs text-slate-400 mt-1">
               Full Stack Developer &amp; Agentic AI Engineer
             </p>

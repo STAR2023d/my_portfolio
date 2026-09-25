@@ -28,6 +28,8 @@ export const techCategories: TechCategory[] = [
   {
     label: "Frontend",
     items: [
+      {name: "dart", icon: "dart" },
+      { name: "Flutter", icon: "flutter" },
       { name: "React", icon: "react" },
       { name: "TypeScript", icon: "typescript" },
       { name: "Next.js", icon: "nextdotjs" },
@@ -39,21 +41,27 @@ export const techCategories: TechCategory[] = [
   {
     label: "Backend",
     items: [
+      { name: "serverpod", icon: "serverpod" },
+      { name: "Firebase", icon: "firebase" },
+      { name: "Supabase", icon: "supabase" },
+      { name: "PostgreSQL", icon: "postgresql" },
       { name: "Node.js", icon: "nodedotjs" },
       { name: "ExpressJS", icon: "express" },
-      { name: "REST APIs" },
+      { name: "REST APIs", icon: "restapi" },
       { name: "MongoDB", icon: "mongodb" },
-      { name: "API Integration" },
+      { name: "API Integration", icon: "api" },
+      { name: "django", icon: "django" },
     ],
   },
   {
     label: "AI / LLM",
     items: [
+      { name: "CrewAI", icon: "crewai" },
       { name: "LangChain", icon: "langchain" },
       { name: "OpenAI", icon: "openai" },
-      { name: "RAG Pipelines" },
-      { name: "LLM Prompt Engineering" },
-      { name: "AI Agents" },
+      { name: "RAG Pipelines", icon: "rag" },
+      { name: "LLM Prompt Engineering", icon: "llm" },
+      { name: "AI Agents", icon: "ai" },
     ],
   },
   {

@@ -6,7 +6,7 @@ import { TextReveal } from "../motion/TextReveal";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { EASE, DUR } from "../../lib/motion";
 
-const GITHUB_URL = "https://github.com/js-muc";
+const GITHUB_URL = "https://github.com/Star2023d";
 
 function GithubSection() {
   const prefersReduced = usePrefersReducedMotion();
