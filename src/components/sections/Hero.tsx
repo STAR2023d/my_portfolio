@@ -82,9 +82,9 @@ function Hero() {
               }}
               className="mt-10 text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl"
             >
-              Full Stack Developer and AI Engineer from Nairobi, Kenya,
-              specialising in SaaS platforms, RAG systems, LLM pipelines
-              and production-grade web applications.
+              Full Stack & AI Engineer | Nairobi, 
+              KenyaSpecializing in production-ready SaaS platforms, 
+              scalable LLM pipelines, and advanced RAG architectures.
             </motion.p>
 
             {/* 4. CTA BUTTONS — stagger in after subtitle */}
@@ -137,7 +137,7 @@ function Hero() {
                 }}
                 whileHover={motionProp({ scale: 1.03, y: -2 })}
                 whileTap={motionProp({ scale: 0.98 })}
-                href="/resume.pdf"
+                href="/Dan_Resume.pdf"
                 download
                 className="border border-slate-700 px-8 py-4 rounded-2xl font-medium flex items-center gap-3 hover:bg-slate-900 transition-colors"
               >
@@ -211,8 +211,8 @@ function Hero() {
             {/* Image frame */}
             <div className="relative z-10 rounded-[40px] overflow-hidden border border-slate-800 shadow-2xl max-w-md w-full">
               <img
-                src="/profile.jpeg"
-                alt="Jesee Muchoki — Full Stack Developer and AI Engineer"
+                src="/Dan_profile_pic.png"
+                alt="Dan Kamau Mwaura — Full Stack Developer and AI Engineer"
                 loading="eager"
                 decoding="async"
                 className="w-full h-full object-cover"

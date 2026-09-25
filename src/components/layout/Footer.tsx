@@ -5,9 +5,9 @@ import { scrollToTop } from "../../lib/scroll";
 
 // Centralized external links — keep in sync with Navbar/Contact
 const LINKS = {
-  github: "https://github.com/js-muc",
-  linkedin: "https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE",
-  email: "remowangai@gmail.com",
+  github: "https://github.com/Star2023d",
+  linkedin: "https://www.linkedin.com/in/Dan Mwaura",
+  email: "mwauradankamau@gmail.com",
 };
 
 function Footer() {
@@ -19,7 +19,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Left: copyright */}
         <p className="text-slate-500 text-sm order-2 md:order-1">
-          © {year} Jesee Muchoki. All rights reserved.
+          © {year} Dan Kamau Mwaura. All rights reserved.
         </p>
 
         {/* Center: quick links */}

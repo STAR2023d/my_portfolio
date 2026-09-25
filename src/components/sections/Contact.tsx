@@ -11,8 +11,8 @@ import { EASE, DUR, VIEWPORT } from "../../lib/motion";
 // Centralized so they can't drift out of sync.
 // ============================================================
 const CONTACT = {
-  email: "remowangai@gmail.com",
-  github: "https://github.com/js-muc",
+  email: "mwauradankamau@gmail.com",
+  github: "https://github.com/Star2023d",
 } as const;
 
 function Contact() {
@@ -54,7 +54,7 @@ function Contact() {
             ------------------------------------------------------------ */}
         <TextReveal
           as="h2"
-          text="Let's build something impactful."
+          text="Let’s engineer a high-impact solution."
           stagger={0.06}
           delayChildren={0.15}
           className="mt-6 text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
