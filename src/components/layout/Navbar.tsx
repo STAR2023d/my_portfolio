@@ -87,7 +87,7 @@ function Navbar() {
           className="flex items-center gap-3 cursor-pointer text-left"
         >
           <img
-            src="/profile.jpeg"
+            src="/Dan_profile_pic.png"
             alt=""
             className="w-11 h-11 rounded-full object-cover border border-primary/40"
           />
