@@ -21,3 +21,5 @@ npm run dev
 - TypeScript
 - TailwindCSS
 - Framer Motion
+
+## happy coding 😁
