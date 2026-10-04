@@ -7,6 +7,8 @@ import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { techCategories } from "../../data/techstack";
 import { EASE, DUR, STAGGER } from "../../lib/motion";
 
+const GOLD = "214, 178, 110";
+
 function TechStack() {
   const prefersReduced = usePrefersReducedMotion();
 
@@ -15,20 +17,27 @@ function TechStack() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionTitle title="Tech Stack" subtitle="Technologies" />
 
-        {/* Categories render one after another; items within each
-            category stagger in a cascade. */}
         <div className="space-y-12">
           {techCategories.map((category) => (
             <div key={category.label}>
-              {/* Category label */}
+              {/* Category label with gold dot + hairline */}
               <div className="mb-5 flex items-center gap-4">
-                <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+                <span
+                  aria-hidden
+                  className="block h-1.5 w-1.5 rounded-full"
+                  style={{ background: `rgba(${GOLD},0.85)` }}
+                />
+                <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-500">
                   {category.label}
                 </h3>
-                <div className="flex-1 h-px bg-slate-800" />
+                <div
+                  className="flex-1 h-px"
+                  style={{
+                    background: `linear-gradient(90deg, rgba(${GOLD},0.25), rgba(120,113,108,0.15), transparent)`,
+                  }}
+                />
               </div>
 
-              {/* Items grid */}
               <Stagger
                 stagger={STAGGER.tight}
                 className="flex flex-wrap gap-3"
@@ -49,13 +58,13 @@ function TechStack() {
                         inline-flex items-center gap-2.5
                         px-4 py-2.5
                         rounded-xl
-                        border border-slate-800
-                        bg-slate-900/40
-                        text-slate-300
+                        border border-stone-800
+                        bg-stone-900/50
+                        text-stone-300
                         transition-colors duration-300
-                        hover:border-primary/60
-                        hover:bg-slate-900/70
-                        hover:text-white
+                        hover:border-[#d6b26e]/50
+                        hover:bg-stone-900/80
+                        hover:text-stone-100
                       "
                     >
                       {tech.icon && (
@@ -63,7 +72,7 @@ function TechStack() {
                           slug={tech.icon}
                           size={16}
                           className="
-                            text-slate-500
+                            text-stone-500
                             transition-colors duration-300
                             group-hover:text-primary
                           "

@@ -3,12 +3,6 @@ type Props = {
   className?: string;
 };
 
-/**
- * OpenAI logo — rendered locally because Simple Icons removed it
- * (trademark request from OpenAI).
- *
- * Path is the standard OpenAI "swirl" mark, 24×24 viewBox.
- */
 export function OpenAIIcon({ size = 16, className }: Props) {
   return (
     <svg

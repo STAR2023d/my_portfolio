@@ -7,27 +7,24 @@ import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { scrollToId } from "../../lib/scroll";
 import { EASE, DUR, STAGGER } from "../../lib/motion";
 
-/**
- * Hero choreography timeline (in seconds, relative to mount).
- *
- * Extracted so the full sequence is readable at a glance. Change
- * one value here and the whole sequence re-times coherently.
- */
+const GOLD = "214, 178, 110";
+const ROSE = "178, 116, 110";
+
+/** Slightly stretched timeline — chill, not rushed. */
 const TIMELINE = {
   badge: 0,
-  headline: 0.15,
-  subtitle: 0.9, // after headline's last words land
-  ctas: 1.15,
-  stats: 1.4,
-  image: 0.4,
-  glow: 0.6,
-  scrollHint: 2.2,
+  headline: 0.2,
+  subtitle: 1.05,
+  ctas: 1.35,
+  stats: 1.7,
+  image: 0.45,
+  glow: 0.7,
+  scrollHint: 2.6,
 } as const;
 
 function Hero() {
   const prefersReduced = usePrefersReducedMotion();
 
-  /** Wrap hover/tap targets — return undefined when reduced motion. */
   const motionProp = <T,>(value: T): T | undefined =>
     prefersReduced ? undefined : value;
 
@@ -39,11 +36,9 @@ function Hero() {
     >
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* ============================================================
-              LEFT COLUMN — Choreographed text sequence
-              ============================================================ */}
+          {/* LEFT COLUMN */}
           <div>
-            {/* 1. BADGE — fade+rise, then pulse the dot */}
+            {/* BADGE */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -54,7 +49,6 @@ function Hero() {
               }}
               className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm mb-8"
             >
-              {/* Pulsing availability dot */}
               <span className="relative flex w-2 h-2" aria-hidden>
                 <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping" />
                 <span className="relative inline-flex rounded-full w-2 h-2 bg-primary" />
@@ -62,16 +56,19 @@ function Hero() {
               Available for remote opportunities
             </motion.div>
 
-            {/* 2. HEADLINE — word-by-word mask reveal */}
+            {/* HEADLINE */}
             <TextReveal
               as="h1"
               text="Building scalable SaaS systems, AI-powered applications and modern business platforms."
               stagger={STAGGER.tight}
               delayChildren={TIMELINE.headline}
-              className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[0.95]"
+              className="
+                text-5xl sm:text-6xl md:text-7xl font-bold leading-[0.98] tracking-tight
+                text-stone-100
+              "
             />
 
-            {/* 3. SUBTITLE — fades up after headline finishes */}
+            {/* SUBTITLE */}
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -80,14 +77,14 @@ function Hero() {
                 ease: EASE.out,
                 delay: TIMELINE.subtitle,
               }}
-              className="mt-10 text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl"
+              className="mt-10 text-lg md:text-xl text-stone-400 leading-relaxed max-w-2xl"
             >
-              Full Stack & AI Engineer | Nairobi, 
-              KenyaSpecializing in production-ready SaaS platforms, 
-              scalable LLM pipelines, and advanced RAG architectures.
+              Full Stack &amp; AI Engineer · Nairobi, Kenya — specializing
+              in production-ready SaaS platforms, scalable LLM pipelines,
+              and advanced RAG architectures.
             </motion.p>
 
-            {/* 4. CTA BUTTONS — stagger in after subtitle */}
+            {/* CTAs */}
             <motion.div
               initial="hidden"
               animate="show"
@@ -102,7 +99,6 @@ function Hero() {
               }}
               className="mt-12 flex flex-wrap gap-5"
             >
-              {/* Primary CTA */}
               <motion.a
                 variants={{
                   hidden: { opacity: 0, y: 16 },
@@ -112,20 +108,31 @@ function Hero() {
                     transition: { duration: DUR.sm, ease: EASE.out },
                   },
                 }}
-                whileHover={motionProp({ scale: 1.03, y: -2 })}
+                whileHover={motionProp({
+                  scale: 1.02,
+                  y: -2,
+                  boxShadow: `0 18px 40px -20px rgba(${GOLD},0.45)`,
+                })}
                 whileTap={motionProp({ scale: 0.98 })}
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToId("projects", { prefersReduced });
                 }}
                 href="#projects"
-                className="bg-primary px-8 py-4 rounded-2xl font-medium flex items-center gap-3 cursor-pointer"
+                className="
+                  group
+                  bg-primary text-stone-950
+                  px-8 py-4 rounded-2xl font-medium
+                  flex items-center gap-3 cursor-pointer
+                "
               >
                 View Projects
-                <ArrowRight size={18} />
+                <ArrowRight
+                  size={18}
+                  className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+                />
               </motion.a>
 
-              {/* Secondary CTA */}
               <motion.a
                 variants={{
                   hidden: { opacity: 0, y: 16 },
@@ -135,18 +142,28 @@ function Hero() {
                     transition: { duration: DUR.sm, ease: EASE.out },
                   },
                 }}
-                whileHover={motionProp({ scale: 1.03, y: -2 })}
+                whileHover={motionProp({ scale: 1.02, y: -2 })}
                 whileTap={motionProp({ scale: 0.98 })}
                 href="/Dan_Resume.pdf"
                 download
-                className="border border-slate-700 px-8 py-4 rounded-2xl font-medium flex items-center gap-3 hover:bg-slate-900 transition-colors"
+                className="
+                  group
+                  border border-stone-700 text-stone-200
+                  px-8 py-4 rounded-2xl font-medium
+                  flex items-center gap-3
+                  hover:bg-stone-900 hover:border-stone-600
+                  transition-colors
+                "
               >
                 Download CV
-                <Download size={18} />
+                <Download
+                  size={18}
+                  className="transition-transform duration-300 ease-out group-hover:translate-y-0.5"
+                />
               </motion.a>
             </motion.div>
 
-            {/* 5. STATS — fade in, then numbers count up */}
+            {/* STATS */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -155,34 +172,32 @@ function Hero() {
                 ease: EASE.out,
                 delay: TIMELINE.stats,
               }}
-              className="mt-20 flex flex-wrap gap-10 text-slate-400"
+              className="mt-20 flex flex-wrap gap-10 text-stone-500"
             >
               <div>
-                <h3 className="text-4xl font-bold text-white">
+                <h3 className="text-4xl font-bold text-stone-100">
                   <CountUp to={3} suffix="+" duration={1.2} />
                 </h3>
                 <p className="mt-2">Years Experience</p>
               </div>
 
               <div>
-                <h3 className="text-4xl font-bold text-white">
+                <h3 className="text-4xl font-bold text-stone-100">
                   <CountUp to={10} suffix="+" duration={1.2} />
                 </h3>
                 <p className="mt-2">Systems Built</p>
               </div>
 
               <div>
-                <h3 className="text-4xl font-bold text-white">AI</h3>
+                <h3 className="text-4xl font-bold text-stone-100">AI</h3>
                 <p className="mt-2">RAG &amp; LLM Focus</p>
               </div>
             </motion.div>
           </div>
 
-          {/* ============================================================
-              RIGHT COLUMN — Image + animated glow
-              ============================================================ */}
+          {/* RIGHT COLUMN — image + warm glow */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
+            initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
               duration: DUR.lg,
@@ -191,9 +206,9 @@ function Hero() {
             }}
             className="relative flex justify-center"
           >
-            {/* Glow — radial gradient, ~10× cheaper than blur */}
+            {/* Warm glow — gold core → rose falloff, matches BackgroundGlow */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.7 }}
+              initial={{ opacity: 0, scale: 0.75 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{
                 duration: DUR.xl,
@@ -201,15 +216,13 @@ function Hero() {
                 delay: TIMELINE.glow,
               }}
               aria-hidden
-              className="absolute w-[420px] h-[420px] rounded-full pointer-events-none"
+              className="absolute w-[460px] h-[460px] rounded-full pointer-events-none"
               style={{
-                background:
-                  "radial-gradient(circle, rgba(124,58,237,0.35) 0%, rgba(124,58,237,0.12) 40%, transparent 70%)",
+                background: `radial-gradient(circle, rgba(${GOLD},0.28) 0%, rgba(${GOLD},0.10) 35%, rgba(${ROSE},0.05) 55%, transparent 75%)`,
               }}
             />
 
-            {/* Image frame */}
-            <div className="relative z-10 rounded-[40px] overflow-hidden border border-slate-800 shadow-2xl max-w-md w-full">
+            <div className="relative z-10 rounded-[40px] overflow-hidden border border-stone-800 shadow-2xl max-w-md w-full">
               <img
                 src="/Dan_profile_pic.png"
                 alt="Dan Kamau Mwaura — Full Stack Developer and AI Engineer"
@@ -217,13 +230,19 @@ function Hero() {
                 decoding="async"
                 className="w-full h-full object-cover"
               />
+              {/* Warm wash so the photo doesn't fight the palette */}
+              <div
+                aria-hidden
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: `linear-gradient(180deg, rgba(20,18,15,0) 55%, rgba(20,18,15,0.35) 100%), radial-gradient(circle at 25% 15%, rgba(${GOLD},0.10), transparent 55%)`,
+                }}
+              />
             </div>
           </motion.div>
         </div>
 
-        {/* ============================================================
-            SCROLL HINT — animated chevron
-            ============================================================ */}
+        {/* SCROLL HINT */}
         <motion.button
           type="button"
           onClick={() => scrollToId("tech", { prefersReduced })}
@@ -231,12 +250,12 @@ function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: DUR.md, delay: TIMELINE.scrollHint }}
-          className="absolute left-1/2 -translate-x-1/2 bottom-6 text-slate-500 hover:text-primary transition-colors cursor-pointer hidden md:block"
+          className="absolute left-1/2 -translate-x-1/2 bottom-6 text-stone-500 hover:text-primary transition-colors cursor-pointer hidden md:block"
         >
           <motion.div
             animate={motionProp({ y: [0, 6, 0] })}
             transition={{
-              duration: 1.8,
+              duration: 2.2,
               repeat: Infinity,
               ease: EASE.inOut,
             }}
