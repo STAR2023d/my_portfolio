@@ -18,6 +18,7 @@ import {
   siFirebase,
   siDjango,
   siCrewai,
+  siFastapi,
 } from "simple-icons";
 
 import { OpenAIIcon } from "./OpenAIIcon";
@@ -47,6 +48,7 @@ const ICONS: Record<string, SimpleIcon> = {
   firebase: siFirebase,
   django: siDjango,
   crewai: siCrewai,
+  fastapi: siFastapi,
 };
 
 type Props = {

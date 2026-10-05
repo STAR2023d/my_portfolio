@@ -8,30 +8,18 @@ import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { experience, type ExperienceEntry } from "../../data/experience";
 import { VIEWPORT, EASE } from "../../lib/motion";
 
-/**
- * Experience section — scroll-linked timeline.
- *
- * Signature behaviour:
- * - A purple line is "drawn" downward as the user scrolls through the
- *   section, using Framer's useScroll + useTransform.
- * - Each entry reveals on view: dot pops in (spring), date fades,
- *   role reveals word-by-word, description fades.
- * - The current role's dot has a pulsing ring.
- * - Everything respects prefers-reduced-motion.
- */
+const GOLD = "214, 178, 110";
+const TEAL = "56, 120, 118";
+
 function Experience() {
   const prefersReduced = usePrefersReducedMotion();
   const timelineRef = useRef<HTMLDivElement>(null);
 
-  // Track scroll progress within the timeline container.
-  // 0.0 = container top reaches viewport center
-  // 1.0 = container bottom reaches viewport center
   const { scrollYProgress } = useScroll({
     target: timelineRef,
     offset: ["start center", "end center"],
   });
 
-  // Map scroll progress to a 0–1 scale for the drawn line.
   const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
@@ -40,32 +28,24 @@ function Experience() {
         <SectionTitle title="Experience" subtitle="Career" />
 
         <div ref={timelineRef} className="relative">
-          {/* ==========================================================
-              STATIC BASE LINE — always present, defines the structure.
-              ========================================================== */}
+          {/* BASE LINE */}
           <div
             aria-hidden
-            className="absolute left-0 top-0 bottom-0 w-px bg-slate-800"
+            className="absolute left-0 top-0 bottom-0 w-px bg-stone-800"
           />
 
-          {/* ==========================================================
-              ANIMATED DRAW LINE — grows via scaleY as you scroll.
-              ========================================================== */}
+          {/* ANIMATED DRAW LINE — gold → teal → transparent */}
           {!prefersReduced && (
             <motion.div
               aria-hidden
-              className="
-                absolute left-0 top-0 bottom-0 w-px
-                origin-top
-                bg-gradient-to-b from-primary via-primary to-primary/40
-              "
-              style={{ scaleY: lineScale }}
+              className="absolute left-0 top-0 bottom-0 w-px origin-top"
+              style={{
+                scaleY: lineScale,
+                background: `linear-gradient(180deg, rgba(${GOLD},0.9) 0%, rgba(${GOLD},0.6) 40%, rgba(${TEAL},0.3) 75%, transparent 100%)`,
+              }}
             />
           )}
 
-          {/* ==========================================================
-              ENTRIES
-              ========================================================== */}
           <div className="space-y-14">
             {experience.map((entry) => (
               <Entry key={entry.role} entry={entry} />
@@ -77,9 +57,6 @@ function Experience() {
   );
 }
 
-// ============================================================
-// ENTRY — one item in the timeline
-// ============================================================
 type EntryProps = { entry: ExperienceEntry };
 
 function Entry({ entry }: EntryProps) {
@@ -87,11 +64,7 @@ function Entry({ entry }: EntryProps) {
 
   return (
     <div className="relative pl-10">
-      {/* ----------------------------------------------------------
-          DOT MARKER — centered on the timeline line.
-          Uses ring-4 in the page bg color to mask the line behind
-          so the dot appears to sit cleanly on top.
-          ---------------------------------------------------------- */}
+      {/* DOT MARKER */}
       <motion.div
         aria-hidden
         initial={
@@ -110,10 +83,9 @@ function Entry({ entry }: EntryProps) {
           flex items-center justify-center
           w-4 h-4 rounded-full
           bg-primary
-          ring-4 ring-[#0B0F19]
+          ring-4 ring-stone-950
         "
       >
-        {/* Pulsing ring for the current entry only */}
         {entry.current && !prefersReduced && (
           <span
             aria-hidden
@@ -122,31 +94,25 @@ function Entry({ entry }: EntryProps) {
         )}
       </motion.div>
 
-      {/* ----------------------------------------------------------
-          DATE
-          ---------------------------------------------------------- */}
+      {/* DATE */}
       <Reveal variant="fadeUp" delay={0.2}>
-        <time className="text-primary font-medium text-sm tracking-wide">
+        <time className="text-primary font-medium text-sm tracking-[0.15em] uppercase">
           {entry.date}
         </time>
       </Reveal>
 
-      {/* ----------------------------------------------------------
-          ROLE — word-by-word reveal
-          ---------------------------------------------------------- */}
+      {/* ROLE */}
       <TextReveal
         as="h3"
         text={entry.role}
         stagger={0.05}
         delayChildren={0.3}
-        className="text-2xl font-bold mt-2"
+        className="text-2xl font-bold mt-2 text-stone-100 tracking-tight"
       />
 
-      {/* ----------------------------------------------------------
-          DESCRIPTION
-          ---------------------------------------------------------- */}
+      {/* DESCRIPTION */}
       <Reveal variant="fadeUp" delay={0.55}>
-        <p className="mt-4 text-slate-400 leading-relaxed">
+        <p className="mt-4 text-stone-400 leading-relaxed">
           {entry.description}
         </p>
       </Reveal>
