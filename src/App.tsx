@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import BackgroundGlow from "./components/ui/BackgroundGlow";
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
@@ -33,6 +34,8 @@ function App() {
 
         <Footer />
       </div>
+
+      <Analytics />
     </main>
   );
 }
