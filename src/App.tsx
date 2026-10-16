@@ -8,11 +8,13 @@ import GithubSection from "./components/sections/GithubSection";
 import Hero from "./components/sections/Hero";
 import Projects from "./components/sections/Projects";
 import TechStack from "./components/sections/TechStack";
-
+import { Analytics } from "@vercel/analytics/react"
+  
 function App() {
   return (
     <main className="bg-dark text-white overflow-hidden relative">
       <BackgroundGlow />
+      <Analytics />
 
       <div className="relative z-10">
         <Navbar />
