@@ -19,6 +19,14 @@ export const projects = [
     live:"https://www.youtube.com/watch?v=jnVRe011E2k",
     github: "https://github.com/STAR2023d/flutter-serverpod-shop",
     image:"/FLUTTER-SHOP-PREVIEW.png"
+  },
+  {
+    title:"Open-Source-Tutor",
+    description:"A mathematics self tutor website that assists students for free and collects no data from students",
+    tech:["flutter", "dart", "langraph"],
+    live:"https://star2023d.github.io/open-source-tutor/",
+    github:"https://github.com/STAR2023d/open-source-tutor",
+    image:"hesabu.jpg"
   }
   
   
