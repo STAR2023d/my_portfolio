@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
+import { WhatsAppIcon } from "../icons/WhatsAppIcon";
+import { WHATSAPP_URL } from "../../lib/whatsapp";
 import { Mail, Github } from "lucide-react";
 
 import { Reveal } from "../motion/Reveal";
 import { TextReveal } from "../motion/TextReveal";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { EASE, DUR, VIEWPORT } from "../../lib/motion";
+import { LINKS as CONTACT } from "../../lib/links";
 
-const CONTACT = {
-  email: "mwauradankamau@gmail.com",
-  github: "https://github.com/Star2023d",
-} as const;
 
 const GOLD = "214, 178, 110";
 
@@ -102,6 +101,28 @@ function Contact() {
                 className="transition-transform duration-300 ease-out group-hover:-translate-y-0.5"
               />
               Email Me
+            </motion.a>
+
+                        <motion.a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={motionProp({ scale: 1.02, y: -2 })}
+              whileTap={motionProp({ scale: 0.98 })}
+              transition={{ duration: DUR.sm, ease: EASE.out }}
+              className="
+                group
+                inline-flex items-center gap-3
+                bg-[#25D366]
+                text-white
+                px-8 py-4
+                rounded-2xl
+                font-medium
+                cursor-pointer
+              "
+            >
+              <WhatsAppIcon size={18} />
+              WhatsApp
             </motion.a>
 
             <motion.a

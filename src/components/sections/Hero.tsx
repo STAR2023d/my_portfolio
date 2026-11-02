@@ -6,7 +6,7 @@ import { CountUp } from "../motion/CountUp";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { scrollToId } from "../../lib/scroll";
 import { EASE, DUR, STAGGER } from "../../lib/motion";
-
+import { NeuralBackground } from "../motion/NeuralBackground.tsx";
 const GOLD = "214, 178, 110";
 const ROSE = "178, 116, 110";
 
@@ -34,6 +34,8 @@ function Hero() {
       aria-label="Introduction"
       className="min-h-screen flex items-center relative pt-32 pb-20"
     >
+      <NeuralBackground/>
+
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* LEFT COLUMN */}
@@ -57,13 +59,15 @@ function Hero() {
             </motion.div>
 
             {/* HEADLINE */}
+
+            
             <TextReveal
               as="h1"
-              text="Building scalable SaaS systems, AI-powered applications and modern business platforms."
+              text="I build scalable SaaS, AI and mobile products."
               stagger={STAGGER.tight}
               delayChildren={TIMELINE.headline}
               className="
-                text-5xl sm:text-6xl md:text-7xl font-bold leading-[0.98] tracking-tight
+                text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.02] tracking-tight
                 text-stone-100
               "
             />
@@ -79,9 +83,10 @@ function Hero() {
               }}
               className="mt-10 text-lg md:text-xl text-stone-400 leading-relaxed max-w-2xl"
             >
-              Full Stack &amp; AI Engineer · Nairobi, Kenya — specializing
-              in production-ready SaaS platforms, scalable LLM pipelines,
-              and advanced RAG architectures.
+              Full Stack &amp; AI Engineer · Kenya. I design and ship
+              production-ready SaaS platforms, Flutter apps and RAG-powered
+              AI tools.
+              
             </motion.p>
 
             {/* CTAs */}

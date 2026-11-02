@@ -12,6 +12,7 @@ const TEAL = "56, 120, 118";
 
 const RAG_TAGS = [
   "LangChain",
+  "LangGraph",
   "OpenAI",
   "FAISS",
   "RAG Pipelines",
