@@ -2,13 +2,9 @@ import { ArrowUp } from "lucide-react";
 
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { scrollToTop } from "../../lib/scroll";
-
+import { LINKS } from "../../lib/links";
 // Centralized external links — keep in sync with Navbar/Contact
-const LINKS = {
-  github: "https://github.com/Star2023d",
-  linkedin: "https://www.linkedin.com/in/Dan Mwaura",
-  email: "mwauradankamau@gmail.com",
-};
+
 
 function Footer() {
   const prefersReduced = usePrefersReducedMotion();

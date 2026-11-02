@@ -3,6 +3,7 @@ import { Github, Linkedin, Menu, X } from "lucide-react";
 
 import { useActiveSection } from "../../hooks/useActiveSection";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
+import { LINKS } from "../../lib/links";
 
 // ============================================================
 // NAV CONFIG
@@ -15,13 +16,6 @@ const NAV_ITEMS = [
   { id: "experience", label: "Experience" },
   { id: "contact", label: "Contact" },
 ] as const;
-
-// ============================================================
-// EXTERNAL LINKS
-const SOCIALS = {
-  github: "https://github.com/STAR2023d",
-  linkedin: "https://www.linkedin.com/in/Dan Mwaura",
-} as const;
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -92,9 +86,9 @@ function Navbar() {
             className="w-11 h-11 rounded-full object-cover border border-primary/40"
           />
           <div>
-            <h1 className="font-bold leading-none">Dan Kamau Mwaura</h1>
+            <p className="font-bold leading-none">Dan Kamau Mwaura</p>
             <p className="text-xs text-slate-400 mt-1">
-              Full Stack Developer &amp; Agentic AI Engineer
+              Full Stack Developer &amp; AI Engineer
             </p>
           </div>
         </button>
@@ -125,7 +119,7 @@ function Navbar() {
         {/* ---------- Desktop socials ---------- */}
         <div className="hidden md:flex items-center gap-4">
           <a
-            href={SOCIALS.github}
+            href={LINKS.github}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile"
@@ -134,7 +128,7 @@ function Navbar() {
             <Github size={20} />
           </a>
           <a
-            href={SOCIALS.linkedin}
+            href={LINKS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn profile"
@@ -187,7 +181,7 @@ function Navbar() {
 
           <div className="flex gap-5 pt-4">
             <a
-              href={SOCIALS.github}
+              href={LINKS.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub profile"
@@ -196,7 +190,7 @@ function Navbar() {
               <Github />
             </a>
             <a
-              href={SOCIALS.linkedin}
+              href={LINKS.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn profile"

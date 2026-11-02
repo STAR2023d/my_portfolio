@@ -18,7 +18,7 @@ export const experience: ExperienceEntry[] = [
     current: true,
   },
   {
-    date: "AI & LLM Engineering",
+    date: "Focus Area",
     role: "RAG Pipelines & Agentic AI",
     description:
       "Developing intelligent document systems, reasoning pipelines and production-ready LLM workflows using LangChain and OpenAI APIs.",

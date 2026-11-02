@@ -10,7 +10,8 @@ type Props = {
   title: string;
   description: string;
   tech: string[];
-  live: string;
+  live?: string;
+  liveLabel?: string;
   github: string;
   image: string;
 };
@@ -25,6 +26,7 @@ function ProjectCard({
   description,
   tech,
   live,
+  liveLabel = "Live Demo",
   github,
   image,
 }: Props) {
@@ -208,34 +210,36 @@ function ProjectCard({
 
         {/* CTAs */}
         <div className="mt-8 flex gap-6 text-sm">
-          <a
-            href={live}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: `rgb(${GOLD})` }}
-            className="
-              font-medium
-              relative
-              after:absolute after:left-0 after:-bottom-0.5
-              after:h-px after:w-full
-              after:origin-left
-              after:scale-x-0
-              hover:after:scale-x-100
-              after:transition-transform after:duration-300
-            "
-          >
-            <span
-              aria-hidden
+                    {live && (
+            <a
+              href={live}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: `rgb(${GOLD})` }}
               className="
-                pointer-events-none absolute left-0 -bottom-0.5 h-px w-full
-                origin-left scale-x-0
-                transition-transform duration-300
-                group-hover:scale-x-100
+                font-medium
+                relative
+                after:absolute after:left-0 after:-bottom-0.5
+                after:h-px after:w-full
+                after:origin-left
+                after:scale-x-0
+                hover:after:scale-x-100
+                after:transition-transform after:duration-300
               "
-              style={{ background: `rgb(${GOLD})` }}
-            />
-            Live Demo
-          </a>
+            >
+              <span
+                aria-hidden
+                className="
+                  pointer-events-none absolute left-0 -bottom-0.5 h-px w-full
+                  origin-left scale-x-0
+                  transition-transform duration-300
+                  group-hover:scale-x-100
+                "
+                style={{ background: `rgb(${GOLD})` }}
+              />
+              {liveLabel}
+            </a>
+          )}
 
           <a
             href={github}
