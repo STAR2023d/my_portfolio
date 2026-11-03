@@ -7,8 +7,18 @@ import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { scrollToId } from "../../lib/scroll";
 import { EASE, DUR, STAGGER } from "../../lib/motion";
 import { NeuralBackground } from "../motion/NeuralBackground.tsx";
+import { TypingRoles } from "../motion/TypingRoles";
+
+
+
 const GOLD = "214, 178, 110";
 const ROSE = "178, 116, 110";
+
+const ROLES = [
+  "Full Stack Developer",
+  "AI Engineer",
+  "Flutter Developer",
+] as const;
 
 /** Slightly stretched timeline — chill, not rushed. */
 const TIMELINE = {
@@ -71,6 +81,22 @@ function Hero() {
                 text-stone-100
               "
             />
+            {/* ROTATING ROLES */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: DUR.md,
+                ease: EASE.out,
+                delay: TIMELINE.subtitle - 0.1,
+              }}
+              className="mt-8"
+            >
+              <TypingRoles
+                roles={ROLES}
+                className="text-2xl md:text-3xl font-medium text-primary"
+              />
+            </motion.div>
 
             {/* SUBTITLE */}
             <motion.p
@@ -81,12 +107,10 @@ function Hero() {
                 ease: EASE.out,
                 delay: TIMELINE.subtitle,
               }}
-              className="mt-10 text-lg md:text-xl text-stone-400 leading-relaxed max-w-2xl"
+              className="mt-4 text-lg md:text-xl text-stone-400 leading-relaxed max-w-2xl"
             >
-              Full Stack &amp; AI Engineer · Kenya. I design and ship
-              production-ready SaaS platforms, Flutter apps and RAG-powered
-              AI tools.
-              
+              Based in Kenya, I design and ship production-ready SaaS
+              platforms, Flutter apps and RAG-powered AI tools.
             </motion.p>
 
             {/* CTAs */}

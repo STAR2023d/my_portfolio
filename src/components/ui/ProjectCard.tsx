@@ -42,8 +42,8 @@ function ProjectCard({
 
   // Slightly gentler rotation than the neon version — reads as "alive"
   // rather than "reactive"
-  const rotateX = useTransform(springTiltY, [-0.5, 0.5], ["3deg", "-3deg"]);
-  const rotateY = useTransform(springTiltX, [-0.5, 0.5], ["-3deg", "3deg"]);
+  const rotateX = useTransform(springTiltY, [-0.5, 0.5], ["7deg", "-7deg"]);
+  const rotateY = useTransform(springTiltX, [-0.5, 0.5], ["-7deg", "7deg"]);
 
   // ------------------------------------------------------------
   // Handlers
@@ -83,7 +83,7 @@ function ProjectCard({
           ? undefined
           : {
               y: -6,
-              scale: 1.015,
+              scale: 1.025,
               boxShadow: `0 24px 60px -28px rgba(${GOLD},0.22), 0 8px 24px -12px rgba(0,0,0,0.5)`,
               transition: { duration: DUR.sm, ease: EASE.out },
             }
