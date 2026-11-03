@@ -125,7 +125,7 @@ function ProjectCard({
         <div className="aspect-[16/10] overflow-hidden">
           <img
             src={image}
-            alt=""
+            alt={`${title} project preview`}
             loading="lazy"
             decoding="async"
             className="
