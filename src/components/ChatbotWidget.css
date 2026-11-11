@@ -21,7 +21,7 @@
 .chatbot-toggle {
   position: fixed;
   bottom: 24px;
-  right: 24px;
+  left: 24px;
   width: 64px;
   height: 64px;
   border-radius: 50%;
